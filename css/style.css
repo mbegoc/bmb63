@@ -1,0 +1,101 @@
+body{
+	margin:0;
+	padding:0;
+	background-color:#000;
+}
+#bannerFrame{
+	padding-top:20px;
+	height:150px;
+}
+	#banner{
+		width:960px;
+		height:140px;
+		background-image:url(../images/banniere.jpg);
+	}
+
+
+#menuFrame{
+	border-top:1px solid #777;
+	border-bottom:1px solid #777;
+}
+	#menu{
+		width:960px;
+		height:30px;
+	}
+#content{
+	margin-top:10px;
+	width:960px;
+	min-height:400px;
+	padding:0;
+	padding-top:20px;
+	padding-bottom:20px;
+	background-color:#fff;
+}
+
+	#footer{
+		margin-top:10px;
+		width:960px;
+		height:80px;
+		margin-bottom:10px;
+		background-color:#fff;
+	}
+.center{
+	margin-left:auto;
+	margin-right:auto;
+}
+
+/*
+*	MENU
+*/
+#menu ul{
+	position:absolute;
+}
+#menu ul, .menu ul{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+#menu li{
+	float:left;
+	width:160px;
+	text-align:center;
+}
+.menu li{
+	float:left;
+	width:20%;
+	text-align:center;
+}
+#menu a, .menu a{
+	display:block;
+	text-decoration:none;
+	color:#000;
+	margin:4px;
+}
+#menu a:hover{
+	background-color:#000;
+	color:#fff;
+}
+#menu a{
+	background-color:#f90;
+	line-height:22px;
+}
+.menu li{
+	background-color:#99b3da;
+	margin-bottom:5px;
+}
+#menu .highlight{
+	color:#fff;
+	background-color:#25a;
+}
+#menu li li{
+	clear:both;
+	width:160px;
+	display:none;
+}
+#menu li li a {
+	margin-top:0;
+	margin-bottom:0;	
+}
+#menu li:hover li{
+	display:block;
+}
