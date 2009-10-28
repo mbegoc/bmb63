@@ -13,7 +13,6 @@ Create Table Equipe
 	Fonction varchar(50) not null,
 	Description varchar(500) not null,
 	LienPhoto varchar(100) not null
-	
 )
 ;
 Create Table Carriere
@@ -43,7 +42,6 @@ Create Table Utilisateurs
 (
 	Id varchar(10) Primary Key,
 	Logon varchar(50) not null,
-	Password varchar(20) not null,
-	Authorisation varchar(20) not null
+	Password varchar(20) not null
 )
 ;
