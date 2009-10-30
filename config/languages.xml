@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<languages>
+	<language lang="fr">
+		<title>DynamikKoncept</title>
+		<copyright><![CDATA[2009 &copy; Tous droits réservés]]></copyright>
+		<menu>
+			<element>Accueil</element>
+			<element>Compagnie</element>
+			<element>Historique</element>
+			<element>Équipe</element>				
+			<element>Carrières</element>
+			<element>Photos</element>
+			<element>Services</element>
+			<element>Contactez-nous</element>
+		</menu>
+	</language>
+	<language lang="en">
+		<title>DynamikKoncept</title>
+		<copyright><![CDATA[2009 &copy; All rights reserved]]></copyright>
+		<menu>
+			<element>Home</element>
+			<element>Company</element>
+			<element>History</element>
+			<element>Team</element>
+			<element>Career</element>
+			<element>Pitctures</element>
+			<element>Services</element>
+			<element>Contact us</element>
+		</menu>
+	</language>
+</languages>
