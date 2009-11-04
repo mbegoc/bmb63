@@ -12,6 +12,6 @@ $langManager = $action->execute();
 include("header.php");
 
 $menu = $langManager->getMenu();
-echo("<h1>" . $menu[3] . "</h1>");
+echo("<h1>" . $menu[4] . "</h1>");
 
 include("footer.php");

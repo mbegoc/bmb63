@@ -1,17 +1,17 @@
 <?php
+/* ---------------------------------------------------
+* *
+* Projet synthèse : A2009 *
+* Fait Par : Benoit Massicotte - Michel Begoc*
+* *
+*--------------------------------------------------- */
+require_once("action/EquipeAction.php");
+$action = new EquipeAction();
+$langManager = $action->execute();
 
-	require_once("action/IndexAction.php");
-	require_once("Constant.php");
+include("header.php");
 
-	$action = new IndexAction();
-	$action->execute();
+$menu = $langManager->getMenu();
+echo("<h1>" . $menu[0] . "</h1>");
 
-	
-	require_once("header.php");
-?>
-	<h1>Page d'accueil</h1>
-	<p><?php echo $indexText ?> </p>
-
-<?php
-	include("footer.php");
-?>
+include("footer.php");

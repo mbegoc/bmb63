@@ -1,7 +1,7 @@
 <?php
 	require_once("action/CommonAction.php");
 	
-	class EquipeAction extends CommonAction {
+	class HistoriqueAction extends CommonAction {
 			
 		public function __construct() {
 			parent::__construct();

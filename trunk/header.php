@@ -17,30 +17,30 @@
 			<?php $menu = $langManager->getMenu(); ?>
 			<ul>
 				<li>
-					<a href=''><?php echo($menu[0]); ?></a>
+					<a href='index.php'><?php echo($menu[0]); ?></a>
 				</li>
 				<li>
-					<a href=''><?php echo($menu[1]); ?></a>
+					<a href='compagnie.php'><?php echo($menu[1]); ?></a>
 					<ul>
 						<li>
-							<a href=''><?php echo($menu[2]); ?></a>
+							<a href='historique.php'><?php echo($menu[2]); ?></a>
 						</li>
 						<li>
-							<a href=''><?php echo($menu[3]); ?></a>
+							<a href='equipe.php'><?php echo($menu[3]); ?></a>
 						</li>
 					</ul>
 				</li>
 				<li>
-					<a href=''><?php echo($menu[4]); ?></a>
+					<a href='carrieres.php'><?php echo($menu[4]); ?></a>
 				</li>
 				<li>
-					<a href=''><?php echo($menu[5]); ?></a>
+					<a href='photos.php'><?php echo($menu[5]); ?></a>
 				</li>
 				<li>
-					<a href=''><?php echo($menu[6]); ?></a>
+					<a href='services.php'><?php echo($menu[6]); ?></a>
 				</li>
 				<li>
-					<a href=''><?php echo($menu[7]); ?></a>
+					<a href='contact.php'><?php echo($menu[7]); ?></a>
 				</li>
 			</ul>
 		</div>
