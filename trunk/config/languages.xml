@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <languages>
-	<language lang="fr">
+	<language lang="fr" fullname="Français">
 		<title>DynamikKoncept</title>
 		<copyright><![CDATA[2009 &copy; Tous droits réservés]]></copyright>
 		<menu>
@@ -14,7 +14,7 @@
 			<element>Contactez-nous</element>
 		</menu>
 	</language>
-	<language lang="en">
+	<language lang="en" fullname="English">
 		<title>DynamikKoncept</title>
 		<copyright><![CDATA[2009 &copy; All rights reserved]]></copyright>
 		<menu>
