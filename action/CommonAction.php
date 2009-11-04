@@ -2,14 +2,24 @@
 	require_once("config/config.php");
 	require_once("action/dao/LanguagesManager.php");
 
-	session_start();
-
 	class CommonAction {
 	
 		public function __construct($visibilty = 0) {
+			session_start();
 		}
 		
 		public function execute() {
-			return new LanguagesManager("en");
+			
+			//gestion de la langue
+			
+			if(isset($_GET["lang"])){
+				$lang = $_GET["lang"];
+			}else{
+				if(isset($SESSION["lang"])){
+					$lang = $_SESSION["lang"];
+				}
+			}
+			return new LanguagesManager($lang);
 		}
 	}
+?>
