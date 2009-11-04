@@ -1,24 +1,19 @@
 <?php 
 abstract class Dao
 {
-        abstract protected function getResultSet();
         abstract protected function next();
         abstract protected function previous();
-        abstract protected function select();
-        abstract protected function modification();
-        
-		protected $resultSet = "mon resultset";
+        abstract protected function select($listeColonne);
+        abstract protected function update($id, $colonne , $value);
 		
-        public function __construct() 
-        {
-         	$this->connecter();
-        }
     	public function connecter() 
     	{
-        	print "connect";
+        	echo "connect<br><br>";
+        	return oci_new_connect("a8massibe", "ElfireMe1", "titan");
    		}
-    	public function deconnecter() 
+    	public function deconnecter($connection) 
     	{
-        	print "deconnect";
+        	oci_close($connection);
+        	echo "deconnect";
    		}
 }
