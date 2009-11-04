@@ -5,13 +5,15 @@
 * Fait Par : Benoit Massicotte - Michel Begoc*
 * *
 *--------------------------------------------------- */
-require_once("action/EquipeAction.php");
-$action = new EquipeAction();
+require_once("action/PhotosAction.php");
+
+$action = new PhotosAction();
 $langManager = $action->execute();
 
 include("header.php");
-
-$menu = $langManager->getMenu();
-echo("<h1>" . $menu[3] . "</h1>");
-
+?>
+<h1>Photos</h1>
+<?php
 include("footer.php");
+
+?>

@@ -81,5 +81,3 @@ class LanguagesManager {
 		return $this->othersLanguage;
 	}
 }
-
-?>
