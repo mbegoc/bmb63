@@ -1,29 +1,64 @@
 <?php
 
 	require_once("dao.php");
-	class ServicesDao extends dao
+	class ServicesDao extends Dao
 	{
-		
+			public $connection;
+			private $result;
+			private $cursor;
 			
-	        public function getResultSet()
-	        {
-	        	parent::connecter();
-	        }
+			
+			function __construct()
+			{
+				$this->connection = parent::connecter();
+				$this->cursor = -1;
+			}
 	        public function next()
 	        {
-	        	print "next";
+	        	$values = array();
+	        	$this->cursor++;
+	        	//var_dump($this->result);
+			    
+			    foreach ($this->result as $res)
+			    {
+	        		$values[] = $res[$this->cursor];	
+			    }
+			    return $values;
 	        }
 	        public function previous()
 	        {
-	        	print "previous";
+	        	$values = array();
+	        	$this->cursor--;
+	        	
+	        	foreach ($this->result as $res)
+			    {
+	        		$values[] = $res[$this->cursor];	
+			    }
+			    return $values;
 	        }
-	        public function select()
+	        public function update($id, $colonne , $value)
 	        {
-	        	print "select";
+	        	$query = "update services set ".$colonne." = :val where id = :id";
+	        	$statement = oci_parse($this->connection,$query);
+	        	
+	        	oci_bind_by_name($statement , ":id", $id);
+	        	oci_bind_by_name($statement , ":val", $value);
+	        	
+	        	oci_execute($statement);
 	        }
-	        public function modification()
+	        
+	        public function select($listeColonne)
 	        {
-	        	print "modification";
+				$query = "SELECT ".$listeColonne." FROM services";
+	        	$statement = oci_parse($this->connection,$query);
+	        	oci_execute($statement);
+	        	$this->cursor = -1;
+	        	oci_fetch_all($statement, $this->result);
+				
 	        }
+	        
+	        
+		
+
 	        
 	}
