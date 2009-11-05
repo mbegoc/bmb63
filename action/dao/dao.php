@@ -3,6 +3,7 @@ abstract class Dao
 {
         abstract protected function next();
         abstract protected function previous();
+        abstract protected function insert($tabValues);
         abstract protected function select($listeColonne);
         abstract protected function update($id, $colonne , $value);
 		
