@@ -56,6 +56,34 @@
 	        	oci_fetch_all($statement, $this->result);
 				
 	        }
+	        public function insert($tabValues)
+	        {
+	        	$i = 0;
+	        	$query = "insert into services values (";
+	        	
+	        	
+	        	foreach ($tabValues as $value)
+	        	{
+	        		$query = $query.":bind".$i.",";
+	        		$i++;
+	        	}
+	        	$query = substr($query,0,-1);
+	        	$query = $query.")";
+	        	
+	        	$statement = oci_parse($this->connection, $query);
+	        	
+	        	$i = 0;
+	        	
+	        	foreach ($tabValues as $value)
+	        	{
+	        		echo "entre";
+	        		oci_bind_by_name($statement , ":bind".$i, $tabValues[$i]);
+	        		$i++;
+	        	}
+	        	
+	        	oci_execute($statement);
+	        		        	
+	        }
 	        
 	        
 		
