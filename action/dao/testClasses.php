@@ -1,19 +1,21 @@
 <?php
 	require_once("ServicesDao.php");
 	require_once("CarriereDao.php");
-	//$service = new ServicesDao;
-	//$service->select("*"); // select("id,titre")
-	//$service->next();
-	//$service->update(1,"Description","haha"); //id , colonne , valeur
-	//$valueTable = array(15,"titre","fr","des");
-	//$service->insert($valueTable);
-	//$service->deconnecter($service->connection);
 	
-	$carriere = new CarriereDao;
-	//$carriere->select("*");
-	//echo $carriere->next();
-	//$carriere->update(1,"description","rien faire");
-	//$carriere->insert(array(10,"fr","danceur","temps plein","Avril 2040"));
-	//$carriere->deconnecter($carriere->connection);
+	//$service = new ServicesDao; //connection automatique
+	
+	/*$service->select("*"); // select("id,titre")
+	$id = $service->next();
+	echo $id[2];
+	$service->next();
+	$service->next();
+	$id = $service->previous();
+	echo $id[2];*/
+	
+	//$service->update(3,"Description","haha"); //id , colonne , valeur
+	
+	//$service->insert(array(75,"fr","titre","des"));
+	
+	//$service->deconnecter();
 	
 	
