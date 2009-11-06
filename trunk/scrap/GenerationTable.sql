@@ -10,19 +10,19 @@ drop table Utilisateurs;
 Create Table ContenuStandard
 (
 	Id number Primary Key,
+  Langue varchar(2) not null,
 	Titre varchar(50) not null,
-	Contenu varchar(2000) not null,
-	Langue varchar(2) not null
+	Contenu varchar(2000) not null
+	
 )
 ;
 Create Table Equipe
 (
 	Id number Primary Key,
-	Nom varchar(50) not null,
-	Prenom varchar(50) not null,
+  Langue varchar(2) not null,
+	Nom varchar(100) not null,
 	Fonction varchar(50) not null,
 	Description varchar(800) not null,
-	Langue varchar(2) not null,
 	LienPhoto varchar(100) not null
 	
 )
@@ -30,17 +30,17 @@ Create Table Equipe
 Create Table Carriere
 (
 	Id number Primary Key,
+  Langue varchar(2) not null,
 	Intitule varchar(50) not null,
 	Description varchar(800),
-	Langue varchar(2) not null,
 	DateEmbauche varchar(50) not null
 )
 ;
 Create Table Photo
 (
 	Id number Primary Key,
+  Langue varchar(2) not null,
 	Nom varchar(50) not null,
-	Langue varchar(2) not null,
 	Description varchar(100) not null,
 	Lien varchar(50) not null
 )
@@ -48,8 +48,8 @@ Create Table Photo
 Create Table Services
 (
 	Id number Primary Key,
+  Langue varchar(2) not null,
 	Titre varchar(50) not null,
-	Langue varchar(2) not null,
 	Description varchar(800) not null
 )
 ;

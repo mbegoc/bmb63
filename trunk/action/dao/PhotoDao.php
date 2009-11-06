@@ -1,11 +1,11 @@
 <?php
 
 	require_once("dao.php");
-	class ServicesDao extends Dao
+	class PhotoDao extends Dao
 	{	
 			function __construct()
 			{
-				parent::__construct("services");
+				parent::__construct("photo");
 				$this->connection = parent::connecter();
 				$this->cursor = -1;
 			} 
