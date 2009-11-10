@@ -71,12 +71,12 @@ abstract class Dao
         	$this->cursor = -1;
         	oci_fetch_all($statement, $this->result);
         }
-        public function update($id, $colonne , $value)
+        public function update($titre, $colonne , $value)
         {
-        	$query = "update ".$listeColonne." set ".$colonne." = :val where id = :id";
+        	$query = "update ".$this->tableName." set ".$colonne." = :val where titre = :id";
         	$statement = oci_parse($this->connection,$query);
         	
-        	oci_bind_by_name($statement , ":id", $id);
+        	oci_bind_by_name($statement , ":id", $titre);
         	oci_bind_by_name($statement , ":val", $value);
         	
         	oci_execute($statement);
