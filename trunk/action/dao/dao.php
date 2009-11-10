@@ -49,10 +49,24 @@ abstract class Dao
 	        	
 	        	oci_execute($statement);
    		}
-        public function select($listeColonne)
+        public function select($listeColonne , $champWhere = null, $valueWhere = null)
         {
 			$query = "SELECT ".$listeColonne." FROM ".$this->tableName;
-        	$statement = oci_parse($this->connection,$query);
+			
+        	if (isset($champWhere) && isset ($valueWhere))
+        	{
+        		$query = $query." where ".$champWhere." = :value";
+        	}
+			
+			
+			$statement = oci_parse($this->connection,$query);
+			
+			if (isset($champWhere) && isset ($valueWhere))
+			{
+        		oci_bind_by_name($statement , ":value", $valueWhere);
+			}
+        	
+        	
         	oci_execute($statement);
         	$this->cursor = -1;
         	oci_fetch_all($statement, $this->result);
