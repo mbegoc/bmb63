@@ -15,10 +15,12 @@
 			if(isset($_GET["lang"])){
 				$lang = $_GET["lang"];
 			}else{
-				if(isset($SESSION["lang"])){
+				if(isset($_SESSION["lang"])){
 					$lang = $_SESSION["lang"];
 				}
 			}
-			return new LanguagesManager($lang);
+			$langManager = new LanguagesManager($lang);
+			$_SESSION["lang"] = $langManager->getLang();
+			return $langManager;
 		}
 	}
