@@ -48,24 +48,20 @@ body{
 *	MENU
 */
 #menu ul{
-	position:absolute;
-}
-#menu ul, .menu ul{
 	list-style-type:none;
 	margin:0;
 	padding:0;
+}
+#menu ul ul{
+	position:relative;/*le positionning est necessaire pour le z-index*/
+	z-index:10;
 }
 #menu li{
 	float:left;
 	width:160px;
 	text-align:center;
 }
-.menu li{
-	float:left;
-	width:20%;
-	text-align:center;
-}
-#menu a, .menu a{
+#menu a{
 	display:block;
 	text-decoration:none;
 	color:#000;
@@ -78,10 +74,6 @@ body{
 #menu a{
 	background-color:#f90;
 	line-height:22px;
-}
-.menu li{
-	background-color:#99b3da;
-	margin-bottom:5px;
 }
 #menu .highlight{
 	color:#fff;
