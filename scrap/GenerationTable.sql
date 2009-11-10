@@ -10,7 +10,7 @@ drop table Utilisateurs;
 Create Table ContenuStandard
 (
 	Id number Primary Key,
-  Langue varchar(2) not null,
+  	Langue varchar(2) not null,
 	Titre varchar(50) not null,
 	Contenu varchar(2000) not null
 	
