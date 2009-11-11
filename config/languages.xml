@@ -13,6 +13,7 @@
 			<element>Services</element>
 			<element>Contactez-nous</element>
 		</menu>
+		<deconnection>Déconnexion</deconnection>
 	</language>
 	<language lang="en" fullname="English">
 		<title>DynamikKoncept</title>
@@ -27,5 +28,6 @@
 			<element>Services</element>
 			<element>Contact us</element>
 		</menu>
+		<deconnection>Deconnect</deconnection>
 	</language>
 </languages>

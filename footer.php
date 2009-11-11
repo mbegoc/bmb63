@@ -7,6 +7,9 @@
 	for($i = 0 ; $i < count($lang) ; $i++){
 		echo("<br /><a href='?lang=" . $lang[$i] . "'>" . $language[$i] . "</a>");
 	}
+	if($action->isConnected()){
+		echo("<br /><a href='?deco'>".$action->getLangManager()->getDeconnection()."</a>");
+	}
 ?>	</div>
 </body>
 </html>
