@@ -6,6 +6,7 @@
 
 	abstract class CommonAction {
 		private $connected = false;
+		private $editable = false;
 		private $langManager;
 		private $communPageName = "";
 		private $editionForm = "forms/commonForm.php";
@@ -39,12 +40,14 @@
 				if(UserDAO::authenticate($_POST["login"]["username"], $_POST["login"]["password"])){
 					$this->connected = true;
 					$_SESSION["loggedin"] = true;
+					$this->editable = true;
 				}else{
 					$this->connected = false;
 					$_SESSION["loggedin"] = false;
 				}
 			}else if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 				$this->connected = true;
+				$this->editable = true;
 			}
 			//deconnexion de l'usager
 			if(isset($_GET["deco"])){
@@ -54,7 +57,7 @@
 			
 			//gestion du module d'administration
 			if($_POST["apercu"] == "apercu"){
-				$this->connected = false;
+				$this->editable = false;
 			}
 		}
 
@@ -66,7 +69,9 @@
 		}
 		
 		public function printContenu($listeColonne , $champWhere=null, $valueWhere=null){
-			if($this->connected){
+			//$this->messager->addDebugMessage($this->connected);
+			$this->messager->addDebugMessage($this->editable);
+			if($this->connected && $this->editable){
 				$action = $this;
 				include($this->editionForm);
 			}else{
