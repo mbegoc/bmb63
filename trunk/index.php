@@ -6,9 +6,7 @@
 * *
 *--------------------------------------------------- */
 require_once("action/IndexAction.php");
-require_once("action/AdminIndexAction.php");
 
-$adminAction = new AdminIndexAction();
 $action = new IndexAction();
 $action->execute();
 
