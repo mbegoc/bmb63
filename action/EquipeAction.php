@@ -8,9 +8,7 @@
 		}
 		
 		public function execute() {
-			$langManager = parent::execute();
-			
-			return $langManager;
+			parent::execute();
 		}
 		
 	}

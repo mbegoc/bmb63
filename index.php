@@ -10,7 +10,7 @@ require_once("action/AdminIndexAction.php");
 
 $adminAction = new AdminIndexAction();
 $action = new IndexAction();
-$langManager = $action->execute();
+$action->execute();
 
 include("header.php");
 
@@ -20,26 +20,10 @@ if (isset($_POST["content"]))
 }
 
 
-$menu = $langManager->getMenu();
+$menu = $action->getLangManager()->getMenu();
 echo("<h1>" . $menu[0] . "</h1>");
 
-?>
 
-	<?php
-	
-	if ($_POST["apercu"] == "apercu")
-	{
-	?>
-		<div>
-			 <?php echo $action->getContenu(); ?>
-		</div>
-	<?php 
-	}
-		else
-		{
-			include("forms/commonForm.php");
-		}
-	
-	
-	
+echo $action->getContenu();
+
 include("footer.php");

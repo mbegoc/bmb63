@@ -14,13 +14,11 @@ abstract class Dao
 		
     	public function connecter() 
     	{
-        	echo "connect<br><br>";
         	return oci_new_connect("a8massibe", "ElfireMe1", "titan");
    		}
     	public function deconnecter() 
     	{
         	oci_close($this->connection);
-        	echo "deconnect";
    		}
    		public function insert($tabValues)
    		{

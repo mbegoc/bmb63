@@ -8,7 +8,7 @@
 require_once("action/ServicesAction.php");
 
 $action = new ServicesAction();
-$langManager = $action->execute();
+$action->execute();
 
 include("header.php");
 ?>

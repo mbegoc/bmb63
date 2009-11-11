@@ -1,30 +1,27 @@
 <?php
 	require_once("action/CommonAction.php");
 	require_once("action/dao/ContenuStandardDao.php");
+	require_once("action/dao/UserDAO.php");
 	
 	class IndexAction extends CommonAction {
 			
-		public $contenu = null;
-		
 		public function __construct() {
 			parent::__construct();
-			$this->contenu = new ContenuStandard();
 			
 		}
 		
 		public function execute() {
-			$langManager = parent::execute();
+			parent::execute();
 			
-			return $langManager;
+			//identification de l'usager
+			if(isset($_POST["login"]["submit"])){
+				if(UserDAO::authenticate($_POST["login"]["username"], $_POST["login"]["password"])){
+					$_SESSION["loggedin"] = true;
+				}
+			}
 		}
 		
-		public function getContenu()
-		{
-			//$this->contenu->select("Contenu","titre","acceuil");
-			$this->contenu->select("Contenu" , "titre" , "acceuil");
-			$value = $this->contenu->next();
-			return $value[0];
-			
+		public function getContenu(){
+			return parent::getContenu("Contenu" , "titre" , "acceuil");
 		}
-		
 	}

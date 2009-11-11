@@ -7,11 +7,11 @@
 *--------------------------------------------------- */
 require_once("action/EquipeAction.php");
 $action = new EquipeAction();
-$langManager = $action->execute();
+$action->execute();
 
 include("header.php");
 
-$menu = $langManager->getMenu();
+$menu = $action->getLangManager()->getMenu();
 echo("<h1>" . $menu[7] . "</h1>");
 
 include("footer.php");
