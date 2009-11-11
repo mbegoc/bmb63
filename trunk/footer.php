@@ -9,7 +9,11 @@
 	}
 	if($action->isConnected()){
 		echo("<br /><a href='?deco'>".$action->getLangManager()->getDeconnection()."</a>");
+	}elseif(DEBUG){
+		echo("<br /><a href='login.php'>Login</a>");
 	}
+	
+	echo($action->getMessager()->dump("<br />"));
 ?>	</div>
 </body>
 </html>
