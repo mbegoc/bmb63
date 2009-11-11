@@ -12,12 +12,6 @@ $action->execute();
 
 include("header.php");
 
-if (isset($_POST["content"]))
-{
-	$adminAction->setContenu($_POST["content"]);
-}
-
-
 $menu = $action->getLangManager()->getMenu();
 echo("<h1>" . $menu[0] . "</h1>");
 

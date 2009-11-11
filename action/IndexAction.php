@@ -12,6 +12,11 @@
 		
 		public function execute() {
 			parent::execute();
+			parent::setCommunPageName("index.php");
+			if ($_POST["apercu"] == "apercu")
+			{
+				$this->setContenu($_POST["content"]);
+			}
 		}
 		
 		public function getContenu(){
@@ -20,5 +25,9 @@
 		
 		public function printContenu(){
 			parent::printContenu("Contenu" , "titre" , "acceuil");
+		}
+		public function setContenu($value){
+			$conn = new ContenuStandard();
+			$conn->update("acceuil", "contenu", $value);	
 		}
 	}
