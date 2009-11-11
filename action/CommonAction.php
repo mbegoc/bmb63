@@ -2,17 +2,20 @@
 	require_once("config/config.php");
 	require_once("action/dao/LanguagesManager.php");
 	require_once("action/dao/ContenuStandardDao.php");
+	require_once("action/Messager.php");
 
 	abstract class CommonAction {
 		private $connected = false;
 		private $langManager;
 		private $editionForm = "forms/commonForm.php";
+		private $messager;
 		
 		public $contenu = null;
 	
 		public function __construct($visibilty = 0) {
 			session_start();
 			$this->contenu = new ContenuStandard();
+			$this->messager = new Messager();
 		}
 		
 		public function execute() {
@@ -76,5 +79,9 @@
 		
 		public function isConnected(){
 			return $this->connected;
+		}
+		
+		public function getMessager(){
+			return $this->messager;
 		}
 	}
