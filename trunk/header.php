@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
-		<title><?php echo($langManager->getTitle()); ?></title>
+		<title><?php echo($action->getLangManager()->getTitle()); ?></title>
 	</head>
 	<body>
 	<div id="bannerFrame">
@@ -14,7 +14,7 @@
 	</div>
 	<div id="menuFrame">
 		<div id="menu" class="center">
-			<?php $menu = $langManager->getMenu(); ?>
+			<?php $menu = $action->getLangManager()->getMenu(); ?>
 			<ul>
 				<li>
 					<a href='index.php'><?php echo($menu[0]); ?></a>

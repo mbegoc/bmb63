@@ -8,7 +8,7 @@
 require_once("action/PhotosAction.php");
 
 $action = new PhotosAction();
-$langManager = $action->execute();
+$action->execute();
 
 include("header.php");
 ?>

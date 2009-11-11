@@ -1,3 +1,6 @@
+/*
+*	TEMPLATE
+*/
 body{
 	margin:0;
 	padding:0;
@@ -92,13 +95,43 @@ body{
 	display:block;
 }
 
-
-/*--------Formulaires---------------*/
-
+/*
+*	FORMULAIRES
+*/
 .inputStandardForm
 {
 	width: 500px;
 	height: 300px;
 }
+.form{
+	border:1px solid #999;
+	padding:10px;
+}
+.form p{
+	line-height:20px;
+}
 
+#login{
+	width:300px;
+	margin:0 auto;
+}
+/*
+*	STYLE
+*/
+
+/*
+*	DIVERS
+*/
+.left{
+	float:left;
+	text-align:left;
+}
+.right{
+	float:right;
+}
+.clear{
+	clear:both;
+}
+.centerAlign{
+	text-align:center;
 
