@@ -7,6 +7,7 @@
 	abstract class CommonAction {
 		private $connected = false;
 		private $langManager;
+		private $communPageName = "";
 		private $editionForm = "forms/commonForm.php";
 		private $messager;
 		
@@ -83,5 +84,11 @@
 		
 		public function getMessager(){
 			return $this->messager;
+		}
+		public function setCommunPageName($name){
+			$this->communPageName = $name;
+		}
+		public function setEditionForm($name){
+			$this->editionForm = $name;
 		}
 	}
