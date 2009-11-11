@@ -4,7 +4,7 @@
 	require_once("action/dao/ContenuStandardDao.php");
 
 	abstract class CommonAction {
-		private $editable = false;
+		private $connected = false;
 		private $langManager;
 		private $editionForm = "forms/commonForm.php";
 		
@@ -29,13 +29,28 @@
 			$_SESSION["lang"] = $this->langManager->getLang();
 			
 			//gestion de la connexion
-			if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-				$this->editable = true;
+					
+			//identification de l'usager
+			if(isset($_POST["login"]["submit"])){
+				if(UserDAO::authenticate($_POST["login"]["username"], $_POST["login"]["password"])){
+					$this->connected = true;
+					$_SESSION["loggedin"] = true;
+				}else{
+					$this->connected = false;
+					$_SESSION["loggedin"] = false;
+				}
+			}else if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+				$this->connected = true;
+			}
+			//deconnexion de l'usager
+			if(isset($_GET["deco"])){
+				$this->connected = false;
+				$_SESSION["loggedin"] = false;
 			}
 			
 			//gestion du module d'administration
 			if($_POST["apercu"] == "apercu"){
-				$this->editable = false;
+				$this->connected = false;
 			}
 		}
 
@@ -47,7 +62,7 @@
 		}
 		
 		public function printContenu($listeColonne , $champWhere=null, $valueWhere=null){
-			if($this->editable){
+			if($this->connected){
 				$action = $this;
 				include($this->editionForm);
 			}else{
@@ -57,5 +72,9 @@
 		
 		public function getLangManager(){
 			return $this->langManager;
+		}
+		
+		public function isConnected(){
+			return $this->connected;
 		}
 	}

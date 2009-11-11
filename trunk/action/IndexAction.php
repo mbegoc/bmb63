@@ -12,18 +12,6 @@
 		
 		public function execute() {
 			parent::execute();
-			
-			//identification de l'usager
-			if(isset($_POST["login"]["submit"])){
-				if(UserDAO::authenticate($_POST["login"]["username"], $_POST["login"]["password"])){
-					$this->editable = true;
-					$_SESSION["loggedin"] = true;
-				}
-			}else{
-				if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]){
-					$this->editable = true;
-				}
-			}
 		}
 		
 		public function getContenu(){
