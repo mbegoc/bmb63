@@ -19,6 +19,5 @@
 	
 	//<textarea class = "inputStandardForm" name="content"><?php echo $action->getContenu();  </textarea>
 ?>
-	<input type="submit" name="envoyer" value="envoyer" />
 	<input type="submit" name="apercu" value="apercu" />
 </form>
