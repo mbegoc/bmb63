@@ -5,8 +5,8 @@
 			<p>Mot de passe: </p>
 		</div>
 		<div class="right">
-			<p><input type="login[text]" name="username" /></p>
-			<p><input type="login[password]" name="password" /></p>
+			<p><input type="text" name="login[username]" /></p>
+			<p><input type="password" name="login[password]" /></p>
 		</div>
 		<div class="clear centerAlign">
 			<input type="submit" name="login[submit]" value="Envoyer" />

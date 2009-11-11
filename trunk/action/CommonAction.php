@@ -1,6 +1,7 @@
 <?php
 	require_once("config/config.php");
 	require_once("action/dao/LanguagesManager.php");
+	require_once("action/dao/ContenuStandardDao.php");
 
 	abstract class CommonAction {
 		private $editable = false;
@@ -40,14 +41,17 @@
 
 		public function getContenu($listeColonne , $champWhere=null, $valueWhere=null)
 		{
-			if(!$this->editable){
-				$form = fopen("/forms/commonForm.php", "rb");
-				return fread($form, filesize($form));
-				fclose($form);
+			$this->contenu->select($listeColonne , $champWhere, $valueWhere);
+			$value = $this->contenu->next();
+			return $value[0];
+		}
+		
+		public function printContenu($listeColonne , $champWhere=null, $valueWhere=null){
+			if($this->editable){
+				$action = $this;
+				include($this->editionForm);
 			}else{
-				$this->contenu->select($listeColonne , $champWhere, $valueWhere);
-				$value = $this->contenu->next();
-				return $value[0];
+				echo($this->getContenu($listeColonne , $champWhere=null, $valueWhere=null));
 			}
 		}
 		

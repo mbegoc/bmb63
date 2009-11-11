@@ -24,6 +24,6 @@ $menu = $action->getLangManager()->getMenu();
 echo("<h1>" . $menu[0] . "</h1>");
 
 
-echo $action->getContenu();
+echo $action->printContenu();
 
 include("footer.php");
