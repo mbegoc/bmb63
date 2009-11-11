@@ -1,0 +1,47 @@
+/*
+*	TEMPLATE
+*/
+body{
+	margin:0;
+	padding:0;
+	background-color:#000;
+}
+#bannerFrame{
+	padding-top:20px;
+	height:150px;
+}
+	#banner{
+		width:960px;
+		height:140px;
+		background-image:url(../images/banniere.jpg);
+	}
+
+
+#menuFrame{
+	border-top:1px solid #777;
+	border-bottom:1px solid #777;
+}
+	#menu{
+		width:960px;
+		height:30px;
+	}
+#content{
+	margin-top:10px;
+	width:960px;
+	min-height:400px;
+	padding:0;
+	padding-top:20px;
+	padding-bottom:20px;
+	background-color:#fff;
+}
+
+	#footer{
+		margin-top:10px;
+		width:960px;
+		margin-bottom:10px;
+		background-color:#fff;
+	}
+.center{
+	margin-left:auto;
+	margin-right:auto;
+}
