@@ -25,6 +25,6 @@
 		}
 		public function setContenu($value){
 			$conn = new ContenuStandard();
-			$conn->update("historique", "contenu", $value);	
+			$conn->update("historique", "contenu", $value,parent::getLangManager()->getLang());	
 		}
 	}

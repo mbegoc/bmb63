@@ -156,7 +156,10 @@ buffet chaud ou froid servi sur tables, un banquet avec service digne des plus g
 chefs, DynamiKoncept vous assure de vous concocter le festin de vos rêves...'
 );
 
-
+insert into ContenuStandard Values
+(
+	2,'fr','contact','Dynamikoncept 
+)
 
 commit;
 
