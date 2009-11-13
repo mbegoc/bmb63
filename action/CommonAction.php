@@ -56,7 +56,7 @@
 			}
 			
 			//gestion du module d'administration
-			if($_POST["apercu"] == "apercu"){
+			if(isset($_POST["apercu"]) && $_POST["apercu"] == $this->getLangManager()->getSave()){
 				$this->editable = false;
 			}
 		}
@@ -70,8 +70,6 @@
 		}
 		
 		public function printContenu($listeColonne , $champWhere=null, $valueWhere=null){
-			//$this->messager->addDebugMessage($this->connected);
-			$this->messager->addDebugMessage($this->editable);
 			if($this->connected && $this->editable){
 				$action = $this;
 				include($this->editionForm);

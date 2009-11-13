@@ -13,7 +13,7 @@
 		public function execute() {
 			parent::execute();
 			parent::setCommunPageName("index.php");
-			if ($_POST["apercu"] == "apercu")
+			if (isset($_POST["apercu"]) && $_POST["apercu"] == $this->getLangManager()->getSave())
 			{
 				$this->setContenu($_POST["content"]);
 			}
@@ -26,8 +26,9 @@
 		public function printContenu(){
 			parent::printContenu("Contenu" , "titre" , "acceuil");
 		}
+		
 		public function setContenu($value){
 			$conn = new ContenuStandard();
-			$conn->update("acceuil", "contenu", $value,parent::getLangManager()->getLang());	
+			$conn->update("acceuil", "contenu", $value,$this->getLangManager()->getLang());
 		}
 	}

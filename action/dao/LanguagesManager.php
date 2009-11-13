@@ -7,7 +7,7 @@ class LanguagesManager {
 	private $othersLang = Array();//les autres langues disponibles
 	private $othersLanguage = Array();//autres langues disponibles
 	
-	private $title, $menu, $copyright, $deconnection;
+	private $title, $menu, $copyright, $deconnection, $save;
 	
 	private $isset = false;//on veut savoir si le langage demandé a bien été trouvé
 	
@@ -34,6 +34,7 @@ class LanguagesManager {
 				$this->title = $language->title;
 				$this->copyright = $language->copyright;
 				$this->deconnection = $language->deconnection;
+				$this->save = $language->save;
 				
 				//menu
 				$i = 0;
@@ -66,6 +67,10 @@ class LanguagesManager {
 	
 	public function getDeconnection(){
 		return $this->deconnection;
+	}
+	
+	public function getSave(){
+		return $this->save;
 	}
 	
 	public function getLang(){

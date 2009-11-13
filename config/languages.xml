@@ -14,6 +14,7 @@
 			<element>Contactez-nous</element>
 		</menu>
 		<deconnection>Déconnexion</deconnection>
+		<save>Enregistrer</save>
 	</language>
 	<language lang="en" fullname="English">
 		<title>DynamikKoncept</title>
@@ -29,5 +30,6 @@
 			<element>Contact us</element>
 		</menu>
 		<deconnection>Deconnect</deconnection>
+		<save>Save</save>
 	</language>
 </languages>
