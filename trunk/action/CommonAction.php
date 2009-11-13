@@ -63,7 +63,8 @@
 
 		public function getContenu($listeColonne , $champWhere=null, $valueWhere=null)
 		{
-			$this->contenu->select($listeColonne , $champWhere, $valueWhere);
+			
+			$this->contenu->select($listeColonne , $champWhere, $valueWhere, $this->langManager->getLang());
 			$value = $this->contenu->next();
 			return $value[0];
 		}
@@ -75,7 +76,7 @@
 				$action = $this;
 				include($this->editionForm);
 			}else{
-				echo($this->getContenu($listeColonne , $champWhere=null, $valueWhere=null));
+				echo($this->getContenu($listeColonne , $champWhere=null, $valueWhere=null,$this->langManager->getLang()));
 			}
 		}
 		
@@ -95,5 +96,8 @@
 		}
 		public function setEditionForm($name){
 			$this->editionForm = $name;
+		}
+		public function s(){
+			return $this->langManager;
 		}
 	}

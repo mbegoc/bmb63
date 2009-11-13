@@ -28,6 +28,6 @@
 		}
 		public function setContenu($value){
 			$conn = new ContenuStandard();
-			$conn->update("acceuil", "contenu", $value);	
+			$conn->update("acceuil", "contenu", $value,parent::getLangManager()->getLang());	
 		}
 	}
