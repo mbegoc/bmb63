@@ -5,6 +5,8 @@
 		<link rel="stylesheet" type="text/css" href="css/template.css" />
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<title><?php echo($action->getLangManager()->getTitle()); ?></title>
+		
+		<script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
 	</head>
 	<body>
 	<div id="bannerFrame">
@@ -46,4 +48,4 @@
 			</ul>
 		</div>
 	</div>
-	<div id='content' class='center'>
+	<div id='contentSection' class='center'>

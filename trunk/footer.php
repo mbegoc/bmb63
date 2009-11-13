@@ -12,7 +12,7 @@
 	}elseif(DEBUG){
 		echo("<br /><a href='login.php'>Login</a>");
 	}
-	
+	echo("<br />");
 	echo($action->getMessager()->dump("<br />"));
 ?>	</div>
 </body>
