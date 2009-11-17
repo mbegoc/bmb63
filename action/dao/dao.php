@@ -21,10 +21,13 @@ abstract class Dao
         	oci_close($this->connection);
    		}
    		public function insert($tabValues)
-   		{
+   		{	
+   				$this->select("max(id)",null,null,$tabValues[0]);
+   				$res = $this->next();
+   				var_dump($res);
    				$i = 0;
-	        	$query = "insert into ".$this->tableName." values (";
-	        	
+   				$nbRow = (string)$res[0]+1;
+	        	$query = "insert into ".$this->tableName." values (" . $nbRow . ",";
 	        	
 	        	foreach ($tabValues as $value)
 	        	{
@@ -40,11 +43,10 @@ abstract class Dao
 	        	
 	        	foreach ($tabValues as $value)
 	        	{
-	        		echo "entre";
 	        		oci_bind_by_name($statement , ":bind".$i, $tabValues[$i]);
 	        		$i++;
 	        	}
-	        	
+	        	var_dump($query);
 	        	oci_execute($statement);
    		}
         public function select($listeColonne , $champWhere = null, $valueWhere = null,$langue=null)
