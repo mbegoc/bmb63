@@ -13,6 +13,12 @@ $action->execute();
 include("header.php");
 ?>
 <h1>Photos</h1>
+
+
+
+
+
+
 <?php
 include("footer.php");
 
