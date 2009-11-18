@@ -158,10 +158,14 @@ chefs, DynamiKoncept vous assure de vous concocter le festin de vos rêves...'
 
 insert into ContenuStandard Values
 (
-	2,'fr','contact','Dynamikoncept 
-)
+	2,'fr','contact','555 boul. Void AshVale (Québec) Canada<br/>H1R 1S2<br/>555-5555<br/>email@email.com'
+);
 
 commit;
+
+
+
+
 
 
 

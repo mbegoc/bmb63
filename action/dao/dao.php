@@ -20,11 +20,19 @@ abstract class Dao
     	{
         	oci_close($this->connection);
    		}
+   		public function delete($colWhere,$valueWhere,$lang)
+   		{
+   			$query = "delete from ".$this->tableName." where langue = :bind1 and ".$colWhere." = :bind2";
+   			$statement = oci_parse($this->connection , $query);
+   			oci_bind_by_name($statement , ":bind1", $lang);
+   			oci_bind_by_name($statement , ":bind2", $valueWhere);
+   			oci_execute($statement);
+   			
+   		}
    		public function insert($tabValues)
    		{	
    				$this->select("max(id)",null,null,$tabValues[0]);
    				$res = $this->next();
-   				var_dump($res);
    				$i = 0;
    				$nbRow = (string)$res[0]+1;
 	        	$query = "insert into ".$this->tableName." values (" . $nbRow . ",";
@@ -46,7 +54,6 @@ abstract class Dao
 	        		oci_bind_by_name($statement , ":bind".$i, $tabValues[$i]);
 	        		$i++;
 	        	}
-	        	var_dump($query);
 	        	oci_execute($statement);
    		}
         public function select($listeColonne , $champWhere = null, $valueWhere = null,$langue=null)
@@ -87,7 +94,6 @@ abstract class Dao
         {
         	$values = array();
         	$this->cursor++;
-        	//var_dump($this->result);
 		    
 		    foreach ($this->result as $res)
 		    {
