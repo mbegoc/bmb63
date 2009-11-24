@@ -65,7 +65,7 @@ abstract class Dao
         		$query = $query." and ".$champWhere." = :value";
         	}
 			
-			
+			var_dump($query);
 			$statement = oci_parse($this->connection,$query);
 			
 			if (isset($champWhere) && isset ($valueWhere))
@@ -77,6 +77,7 @@ abstract class Dao
         	oci_execute($statement);
         	$this->cursor = -1;
         	oci_fetch_all($statement, $this->result);
+        	
         }
         public function update($titre, $colonne , $value, $langue)
         {
@@ -88,6 +89,7 @@ abstract class Dao
         	oci_bind_by_name($statement , ":lang", $langue);
         	
         	oci_execute($statement);
+        	
         }
         
         public function next()
@@ -95,10 +97,17 @@ abstract class Dao
         	$values = array();
         	$this->cursor++;
 		    
-		    foreach ($this->result as $res)
-		    {
-        		$values[] = $res[$this->cursor];	
-		    }
+        	if (isset($this->result[$this->cursor]))
+        	{
+			    foreach ($this->result as $res)
+			    {
+	        		$values[] = $res[$this->cursor];	
+			    }
+        	}
+        	else
+        	{
+        		$values = null;
+        	}
 		    return $values;
         }
         public function previous()
