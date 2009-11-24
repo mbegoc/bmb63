@@ -19,11 +19,11 @@
 		public function getContenu(){
 			return parent::getContenu("Contenu" , "titre" , "contact");
 		}
-		public function getAdresse()
+		public function getContactInfo($i)
 		{
 			$contenu = $this->getContenu();
 			$values = explode("<br/>",$contenu);
-			return $values[0];
+			return $values[$i];
 		}
 		
 		public function printContenu(){

@@ -12,11 +12,14 @@
 		
 		public function execute() {
 			parent::execute();
+			$conn = new ContenuStandard();
+			
 			parent::setCommunPageName("index.php");
 			if ($_POST["apercu"] == "apercu")
 			{
 				$this->setContenu($_POST["content"]);
 			}
+			
 			
 		}
 		
@@ -29,6 +32,8 @@
 		}
 		public function setContenu($value){
 			$conn = new ContenuStandard();
-			$conn->update("acceuil", "contenu", $value,parent::getLangManager()->getLang());
+			//$conn->update("acceuil", "contenu", $value,parent::getLangManager()->getLang());
+			$conn->select("*" , "id", "667","fr");
+			$test = $conn->next();
 		}
 	}
