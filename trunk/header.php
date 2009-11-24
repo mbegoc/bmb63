@@ -4,8 +4,15 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="css/template.css" />
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script type="text/javascript" src="jquery/jquery-1.3.2.js"></script>
+		<script type="text/javascript" src="jquery/js/jquery.lightbox-0.5.js"></script>
+		<link rel="stylesheet" type="text/css" href="jquery/css/jquery.lightbox-0.5.css" media="screen" />
 		<title><?php echo($action->getLangManager()->getTitle()); ?></title>
-		
+		<script type="text/javascript">
+    		$(function() {
+        	$('#gallery a').lightBox();
+    		});
+    	</script>
 		<script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
 	</head>
 	<body>
