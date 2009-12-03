@@ -11,8 +11,9 @@ $action = new ServicesAction();
 $action->execute();
 
 include("header.php");
-?>
-<h1>Services</h1>
-<?php
+$menu = $action->getLangManager()->getMenu();
+
+echo("<h1>".$menu[6]."</h1>");
+
+$action->printContenu();
 include("footer.php");
-?>

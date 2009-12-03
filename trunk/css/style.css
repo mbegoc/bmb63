@@ -70,6 +70,10 @@
 *	STYLE
 */
 
+img{
+	border:0;
+}
+
 /*
 *	DIVERS
 */
@@ -85,4 +89,7 @@
 }
 .centerAlign{
 	text-align:center;
-
+}
+.rightAlign{
+	text-align:right;
+}

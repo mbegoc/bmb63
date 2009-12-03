@@ -5,12 +5,12 @@
 	require_once("action/Messager.php");
 
 	abstract class CommonAction {
-		private $connected = false;
-		private $editable = false;
-		private $langManager;
-		private $communPageName = "";
-		private $editionForm = "forms/commonForm.php";
-		private $messager;
+		protected $connected = false;
+		protected $editable = false;
+		protected $langManager;
+		protected $communPageName = "";
+		protected $editionForm = "forms/commonForm.php";
+		protected $messager;
 		
 		public $contenu = null;
 	

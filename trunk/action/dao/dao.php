@@ -6,6 +6,7 @@ abstract class Dao
         public $connection;
 		protected $result;
 		protected $cursor;
+		protected $nbLignes;
         
         function __construct($table)
         {
@@ -56,7 +57,7 @@ abstract class Dao
 	        	}
 	        	oci_execute($statement);
    		}
-        public function select($listeColonne , $champWhere = null, $valueWhere = null,$langue=null)
+        public function select($listeColonne, $champWhere = null, $valueWhere = null, $langue=null)
         {
 			$query = "SELECT ".$listeColonne." FROM ".$this->tableName." where langue = :lang" ;
 			
@@ -65,7 +66,7 @@ abstract class Dao
         		$query = $query." and ".$champWhere." = :value";
         	}
 			
-			var_dump($query);
+//			var_dump($query);
 			$statement = oci_parse($this->connection,$query);
 			
 			if (isset($champWhere) && isset ($valueWhere))
@@ -76,8 +77,8 @@ abstract class Dao
         	oci_bind_by_name($statement , ":lang", $langue);
         	oci_execute($statement);
         	$this->cursor = -1;
-        	oci_fetch_all($statement, $this->result);
-        	
+        	$this->nbLignes = oci_fetch_all($statement, $this->result);
+//        	var_dump($this->result);
         }
         public function update($titre, $colonne , $value, $langue)
         {
@@ -97,7 +98,8 @@ abstract class Dao
         	$values = array();
         	$this->cursor++;
 		    
-        	if (isset($this->result[$this->cursor]))
+        	//il y avait un bug ici: $this->result[$this->cursor] n'existe pas (le premier index est un champ de table)
+        	if ($this->cursor < $this->nbLignes)//[$this->cursor]))
         	{
 			    foreach ($this->result as $res)
 			    {
@@ -121,4 +123,14 @@ abstract class Dao
 		    }
 		    return $values;
         }
-}
+//		public function next(){
+//			$this->cursor++;
+//		}
+//		
+//		public function hasNext(){
+//			if($this->cursor < $this->nbLignes - 1)
+//				return true;
+//			else
+//				return false;
+//		}
+	}
