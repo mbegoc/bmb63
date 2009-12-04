@@ -80,11 +80,12 @@ abstract class Dao
         	$this->nbLignes = oci_fetch_all($statement, $this->result);
 //        	var_dump($this->result);
         }
+        
         public function update($titre, $colonne , $value, $langue)
         {
         	$query = "update ".$this->tableName." set ".$colonne." = :val where titre = :id and langue = :lang";
         	$statement = oci_parse($this->connection,$query);
-        	
+
         	oci_bind_by_name($statement , ":id", $titre);
         	oci_bind_by_name($statement , ":val", $value);
         	oci_bind_by_name($statement , ":lang", $langue);
