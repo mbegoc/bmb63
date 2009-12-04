@@ -10,7 +10,7 @@
 		public function execute() {
 			parent::execute();
 			parent::setCommunPageName("historique.php");
-			if ($_POST["apercu"] == "apercu")
+			if (isset($_POST["apercu"]))
 			{
 				$this->setContenu($_POST["content"]);
 			}
@@ -24,7 +24,6 @@
 			parent::printContenu("Contenu" , "titre" , "historique");
 		}
 		public function setContenu($value){
-			$conn = new ContenuStandard();
-			$conn->update("historique", "contenu", $value,parent::getLangManager()->getLang());	
+			$this->contenu->update("historique", "contenu", $value, parent::getLangManager()->getLang());	
 		}
 	}

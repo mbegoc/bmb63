@@ -15,9 +15,9 @@
 			$conn = new ContenuStandard();
 			
 			parent::setCommunPageName("index.php");
-			if ($_POST["apercu"] == "apercu")
+			if (isset($_POST["apercu"]))
 			{
-				$this->setContenu($_POST["content"]);
+				$this->setContenu($_POST["content"]);	
 			}
 			
 			
@@ -31,9 +31,8 @@
 			parent::printContenu("Contenu" , "titre" , "acceuil");
 		}
 		public function setContenu($value){
-			$conn = new ContenuStandard();
-			//$conn->update("acceuil", "contenu", $value,parent::getLangManager()->getLang());
-			$conn->select("*" , "id", "667","fr");
-			$test = $conn->next();
+			$this->contenu->update("acceuil", "contenu", $value,parent::getLangManager()->getLang());
+//			$conn->select("*" , "id", "667","fr");
+//			$test = $conn->next();
 		}
 	}

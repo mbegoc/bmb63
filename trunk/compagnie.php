@@ -6,6 +6,7 @@
 * *
 *--------------------------------------------------- */
 require_once("action/EquipeAction.php");
+
 $action = new EquipeAction();
 $action->execute();
 
@@ -13,5 +14,7 @@ include("header.php");
 
 $menu = $action->getLangManager()->getMenu();
 echo("<h1>" . $menu[1] . "</h1>");
+
+echo $action->printContenu();
 
 include("footer.php");
