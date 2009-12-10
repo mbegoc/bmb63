@@ -14,7 +14,7 @@
 	if($action->isConnected()){
 		echo("<p class='centerAlign'><a href='?deco'>".$action->getLangManager()->getDeconnection()."</a></p>");
 	}elseif(DEBUG){
-		echo("<p class='centerAlign'><a href='login.php'>Login</p>");
+		echo("<p class='clear centerAlign'><a href='login.php'>Login</p>");
 	}
 	echo("<div class='clear'></div>");
 	

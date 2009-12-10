@@ -16,6 +16,6 @@ $menu = $action->getLangManager()->getMenu();
 echo("<h1>".$menu[3]."</h1>");
 
 $action->printContenu();
-echo("<div class='clear'></div>");
+//echo("<div class='clear'></div>");
 
 include("footer.php");
