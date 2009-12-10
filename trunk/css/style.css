@@ -66,6 +66,32 @@
 	line-height:20px;
 }
 
+.contactForm input
+{
+	margin-left: 350px;
+}
+
+.contactForm p
+{
+	
+	height: 25px;
+	float:left;
+}
+
+.contactForm textArea
+{
+
+	height: 15px;
+}
+.contactForm span
+{
+	float: left;
+	padding-right: 30px;
+	width: 100px;
+}
+
+
+
 #login{
 	width:300px;
 	margin:0 auto;
