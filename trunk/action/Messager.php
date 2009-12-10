@@ -39,4 +39,12 @@ class Messager{
 		}
 		return $dump;
 	}
+	
+	public function hasMessages(){
+		if(count($this->messages) == 0){
+			return false;
+		}else{
+			return true;
+		}
+	}
 }
