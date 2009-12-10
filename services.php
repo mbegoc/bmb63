@@ -11,9 +11,10 @@ $action = new ServicesAction();
 $action->execute();
 
 include("header.php");
-$menu = $action->getLangManager()->getMenu();
 
+$menu = $action->getLangManager()->getMenu();
 echo("<h1>".$menu[6]."</h1>");
 
 $action->printContenu();
+
 include("footer.php");

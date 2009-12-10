@@ -21,14 +21,10 @@
 				$this->setContenu($_POST["content"]);
 			}
 			if(isset($_GET["action"]) && $_GET["action"] === "del" && isset($_GET["id"]) && $_GET["id"] !== ""){
-				$dao= new ServicesDao();
-				$dao->delete("id", $_GET["id"], $this->langManager->getLang());
+				$this->contenu->delete("id", $_GET["id"], $this->langManager->getLang());
 			}	
 		}
 		
-		public function getContenu(){
-			return parent::getContenu("Contenu" , "titre" , "acceuil");
-		}
 		public function printContenu(){
 			if($this->connected && $this->editable && isset($_GET["new"])){
 				$action = $this;
@@ -43,9 +39,8 @@
 					echo("<p class='rightAlign'><a href='?new'><img src='images/New-Folder-icon.png' alt='Ajouter un service' title='Ajouter un service' /></a></p>");
 				}
 				
-				$dao = new ServicesDao();
-				$dao->selectAll($this->getLangManager()->getLang());
-				$service = $dao->next();
+				$this->contenu->selectAll($this->getLangManager()->getLang());
+				$service = $this->contenu->next();
 				while(!is_null($service)){
 					echo("<h2>".$service[1]."</h2>");
 					echo("<p>".$service[2]."</p>");
@@ -53,16 +48,16 @@
 						echo("<p class='rightAlign'><a href='?id=".$service[0]."&action=mod'><img src='images/Editor-icon.png' alt='Modifier' title='Modifier' /></a>");
 						echo("<a href='?id=".$service[0]."&action=del'><img src='images/Delete-icon.png' alt='Supprimer' title='Supprimer' /></a></p>");
 					}
-					$service = $dao->next();
+					$service = $this->contenu->next();
 				}
 			}			
 		}
 		
 		public function setContenu($value){
 			if(isset($_POST["id"]) && $_POST["id"] != ""){
-				$this->contenu->update($_POST["id"], $_POST["titre"], $_POST["content"]);
+				$this->contenu->update($_POST["id"], $_POST["titre"], $_POST["content"], $_POST["date"]);
 			}else{
-				$this->contenu->insert(Array(0=>$this->langManager->getLang(), 1=>$_POST["titre"], 2=>$_POST["content"]));
+				$this->contenu->insert(Array(0=>$this->langManager->getLang(), 1=>$_POST["titre"], 2=>$_POST["content"], 3=>$_POST["date"]));
 			}
-		}		
+		}
 	}
