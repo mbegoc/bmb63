@@ -1,6 +1,10 @@
 /*
 *	MENU
 */
+#menuFrame{
+	border-top:1px solid #777;
+	border-bottom:1px solid #777;
+}
 #menu ul{
 	list-style-type:none;
 	margin:0;
@@ -23,10 +27,10 @@
 }
 #menu a:hover{
 	background-color:#000;
-	color:#fff;
+	color:#c9c099;
 }
 #menu a{
-	background-color:#f90;
+	background-color:#c0a055;
 	line-height:22px;
 }
 #menu .highlight{
@@ -69,11 +73,85 @@
 /*
 *	STYLE
 */
+ul{
+	list-style-type:none;
+}
+
+a{
+	text-decoration:none;
+	color:#706029;
+	font-variant:small-caps;
+	font-weight:bold;
+}
 
 img{
 	border:0;
 }
 
+img.equipe{
+	margin:30px;
+}
+
+#contentSection, #footer{
+	background-color:#1E1E1E;
+}
+
+#contentSection{
+	border-bottom:2px solid #403930;
+}
+
+#footer{
+	border-top:2px solid #403930;
+	border-bottom:4px solid #403930;	
+}
+
+h1,h2,h3,h4,h5,h6,p{
+	margin-left:200px;
+	margin-right:150px;
+	color:#000;
+}
+
+h1{
+	margin-top:10px;
+	margin-left:30px;
+	margin-right:30px;
+	color:#a9a177;
+	font-weight:bold;
+	text-transform:uppercase;
+	font-size:1.4em;
+	letter-spacing:8px;
+	border-bottom:1px solid #a9a177;
+}
+
+h2{
+	font-variant:small-caps;
+	color:#796023;
+}
+
+h3{
+	text-decoration:underline;
+}
+
+h4{
+	font-weight:bold;
+}
+
+h5{
+	font-style:italic;
+}
+
+h6{
+	font-style:oblique;
+}
+
+p{
+	text-align:justify;
+	color:#897033;
+}
+
+#footer p{
+	margin:10px;
+}
 /*
 *	DIVERS
 */

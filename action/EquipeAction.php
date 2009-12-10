@@ -51,7 +51,7 @@
 				$this->contenu->selectAll($this->getLangManager()->getLang());
 				$employe = $this->contenu->next();
 				while(!is_null($employe)){
-					echo("<div class='clear'><img class='right' src='$employe[4]' alt='$employe[1] - $employe[2]' title='$employe[1] - $employe[2]' /><h2>$employe[1]</h2>");
+					echo("<div class='clear'><img class='right equipe' src='$employe[4]' alt='$employe[1] - $employe[2]' title='$employe[1] - $employe[2]' /><h2>$employe[1]</h2>");
 					echo("<h3>$employe[2]</h3>");
 					echo("<p>$employe[3]</p>");
 					if($this->connected && $this->editable){
