@@ -17,10 +17,8 @@
 			parent::setCommunPageName("index.php");
 			if (isset($_POST["apercu"]))
 			{
-				$this->setContenu($_POST["content"]);	
+				$this->setContenu($_POST["content"]);
 			}
-			
-			
 		}
 		
 		public function getContenu(){

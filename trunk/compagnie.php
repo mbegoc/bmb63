@@ -5,9 +5,9 @@
 * Fait Par : Benoit Massicotte - Michel Begoc*
 * *
 *--------------------------------------------------- */
-require_once("action/EquipeAction.php");
+require_once("action/CompagnieAction.php");
 
-$action = new EquipeAction();
+$action = new CompagnieAction();
 $action->execute();
 
 include("header.php");

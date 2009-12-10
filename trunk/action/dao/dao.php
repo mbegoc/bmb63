@@ -49,7 +49,7 @@ abstract class Dao
 	        	$statement = oci_parse($this->connection, $query);
 	        	
 	        	$i = 0;
-	        	
+//	        	var_dump($query);
 	        	foreach ($tabValues as $value)
 	        	{
 	        		oci_bind_by_name($statement , ":bind".$i, $tabValues[$i]);
