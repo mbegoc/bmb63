@@ -75,6 +75,8 @@
 				include($this->editionForm);
 			}else{
 				echo($this->getContenu($listeColonne , $champWhere=null, $valueWhere=null,$this->langManager->getLang()));
+				if($this->connected)
+					echo("<p><a href='$this->communPageName'>Éditer</a></p>");
 			}
 		}
 		

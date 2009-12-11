@@ -12,7 +12,7 @@
 			parent::execute();
 			parent::setCommunPageName("equipe.php");
 			
-			$this->editionForm = "forms/equipeForm.php"; 
+			$this->editionForm = "forms/equipeForm.php";
 			
 			$this->contenu = new EquipeDao();
 			
@@ -27,7 +27,8 @@
 					unlink($resultat[0]);
 					
 				$this->contenu->delete("id", $_GET["id"], $this->langManager->getLang());
-			}	
+				$this->messager->addMessage("Suppression effectuée.", true);
+			}
 		}
 		
 		public function printContenu(){
@@ -51,13 +52,14 @@
 				$this->contenu->selectAll($this->getLangManager()->getLang());
 				$employe = $this->contenu->next();
 				while(!is_null($employe)){
-					echo("<div class='clear'><img class='right equipe' src='$employe[4]' alt='$employe[1] - $employe[2]' title='$employe[1] - $employe[2]' /><h2>$employe[1]</h2>");
+					echo("<div class='clear'><img class='right equipe' width='150px' height='220px' src='$employe[4]' alt='$employe[1] - $employe[2]' title='$employe[1] - $employe[2]' /><h2>$employe[1]</h2>");
 					echo("<h3>$employe[2]</h3>");
-					echo("<p>$employe[3]</p>");
+					echo("$employe[3]");
 					if($this->connected && $this->editable){
 						echo("<p class='rightAlign clear'><a href='?id=$employe[0]&action=mod'><img src='images/Editor-icon.png' alt='Modifier' title='Modifier' /></a>");
-						echo("<a href='?id=$employe[0]&action=del'><img src='images/Delete-icon.png' alt='Supprimer' title='Supprimer' /></a></p></div>");
+						echo("<a class='del' href='?id=$employe[0]&action=del'><img src='images/Delete-icon.png' alt='Supprimer' title='Supprimer' /></a></p>");
 					}
+					echo("</div>");
 					$employe = $this->contenu->next();
 				}
 			}
@@ -76,10 +78,10 @@
 						//copie du fichier uploadé
 						$filePath = "images/".basename($_FILES["photo"]["name"]);
 						if(file_exists($filePath)){
-							$this->messager->addMessage("Un fichier portant ce nom existe déjà sur le serveur.");
+							$this->messager->addMessage("Un fichier portant ce nom existe déjà sur le serveur.", true);
 						}else{
 							if(!move_uploaded_file($_FILES["photo"]["tmp_name"], $filePath)){
-								$this->messager->addMessage("Erreur de l'écriture du fichier sur le serveur.");
+								$this->messager->addMessage("Erreur de l'écriture du fichier sur le serveur.", true);
 							}
 						}
 					}else{
@@ -88,28 +90,30 @@
 					break;
 				case UPLOAD_ERR_INI_SIZE:
 				case UPLOAD_ERR_FORM_SIZE:
-					$this->messager->addMessage("Le document est trop lourd.");
+					$this->messager->addMessage("Le document est trop lourd.", true);
 					break;
 				case UPLOAD_ERR_PARTIAL:
 				case UPLOAD_ERR_NO_FILE:
-					$this->messager->addMessage("Le chargement du document n'a pas abouti.");
+					$this->messager->addMessage("Le chargement du document n'a pas abouti.", true);
 					break;
 				case UPLOAD_ERR_CANT_WRITE:
 				case UPLOAD_ERR_NO_TMP_DIR:
 				case UPLOAD_ERR_EXTENSION:
-					$this->messager->addMessage("Une erreur interne au serveur est survenue. Veuillez en avisez l'administrateur si cette erreur se reproduit.");
+					$this->messager->addMessage("Une erreur interne au serveur est survenue. Veuillez en avisez l'administrateur si cette erreur se reproduit.", true);
 					break;
 				default:
-					$this->messager->addMessage("Une erreur inconnue s'est produite. Veuillez en avisez l'administrateur si cette erreur se reproduit.");
+					$this->messager->addMessage("Une erreur inconnue s'est produite. Veuillez en avisez l'administrateur si cette erreur se reproduit.", true);
 					
 			}
 			if(isset($_POST["id"]) && $_POST["id"] != ""){
 				$this->contenu->update($_POST["id"], $_POST["nom"], $_POST["fonction"], $_POST["description"], $filePath);
+				$this->messager->addMessage("Les modifications ont bien été enregistrées.", true);
 			}else{
 				$datas = Array(0=>$this->langManager->getLang(), 1=>$_POST["nom"], 2=>$_POST["fonction"], 3=>$_POST["description"]);
 				if($filePath != null)
 					$datas[4] = $filePath;
 				$this->contenu->insert($datas);
+				$this->messager->addMessage("Le nouveau membre a bien été ajouté à l'équipe.", true);
 			}
 		}		
 		

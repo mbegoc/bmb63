@@ -6,6 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<script type="text/javascript" src="jquery/jquery-1.3.2.js"></script>
 		<script type="text/javascript" src="jquery/js/jquery.lightbox-0.5.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
 		<link rel="stylesheet" type="text/css" href="jquery/css/jquery.lightbox-0.5.css" media="screen" />
 		<title><?php echo($action->getLangManager()->getTitle()); ?></title>
 		<script type="text/javascript">
@@ -56,3 +57,7 @@
 		</div>
 	</div>
 	<div id='contentSection' class='center'>
+<?php
+	 if($action->getMessager()->hasNonAlertMessages()){
+		echo("<p>".$action->getMessager()->dump("</p><p>", -1)."</p>");
+	}

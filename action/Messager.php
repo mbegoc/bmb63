@@ -2,40 +2,49 @@
 require_once("config/config.php");
 
 class Messager{
-	public static $ERROR = 2,
-				  $WARNING = 1,
-				  $INFO = 0,
-				  $ALL = 10;  
+/*	ERROR = 2
+	WARNING = 1
+	INFO = 0
+	NORMAL = -1
+	ALL = 10  
+*/
 	private $messages;
 	
 	public function __construct(){
 		$this->messages = Array();
 	}
 	
-	public function addMessage($message, $errorLevel = 0){
-		$this->messages[count($this->messages)] = Array($message, $errorLevel);
+	public function addMessage($message, $alert = false){
+		$this->messages[count($this->messages)] = Array($message, -1, $alert);
 	}
 	
-	public function addDebugMessage($message, $errorLevel = 0){
+	public function addDebugMessage($message, $errorLevel = 2, $alert = false){
 		if(DEBUG)
-			$this->addMessage($message, $errorLevel);
+			$this->messages[count($this->messages)] = Array($message, $errorLevel, $alert);
 	}
 	
-	public function setMessage($message, $errorLevel = 0){
-		$this->messages = Array();
-		$this->messages[0] = Array($message, $errorLevel);
+	public function dump($nl = "\n", $errorLevelMax = 10, $errorLevelMin = -1){
+		$dump = "";
+		$endLine = "";
+		foreach($this->messages as $message){
+			if($message[1] <= $errorLevelMax && $message[1] >= $errorLevelMin){
+				if(!$message[2]){
+					$dump .= $endLine . $message[0];
+				}
+			}
+			$endLine = $nl;
+		}
+		return $dump;
 	}
 	
-	public function setDebugMessage($message, $errorLevel = 0){
-		if(DEBUG)
-			$this->setMessage($message, $errorLevel = 0);
-	}
-	
-	public function dump($nl = "\n", $errorLevel = 10){
+	public function alert($errorLevelMax = 10, $errorLevelMin = -1){
 		$dump = "";
 		foreach($this->messages as $message){
-			if($message[1] < $errorLevel)
-				$dump .= $message[0] . $nl;
+			if($message[1] <= $errorLevelMax && $message[1] >= $errorLevelMin){
+				if($message[2]){
+					$dump .= "<script language='javascript'>alert('$message[0]');</script>";
+				}
+			}
 		}
 		return $dump;
 	}
@@ -46,5 +55,23 @@ class Messager{
 		}else{
 			return true;
 		}
+	}
+		
+	public function hasNonAlertMessages(){
+		foreach($this->messages as $message){
+			if(!$message[2]){
+				return true;
+			}
+		}
+		return false;
+	}
+			
+	public function hasAlertMessages(){
+		foreach($this->messages as $message){
+			if($message[2]){
+				return true;
+			}
+		}
+		return false;
 	}
 }
