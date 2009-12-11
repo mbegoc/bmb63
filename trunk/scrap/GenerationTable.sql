@@ -38,7 +38,7 @@ Create Table Carriere
 Create Table Photo
 (
 	Id number Primary Key,
-  Langue varchar(2) not null,
+  	Langue varchar(2) not null,
 	Nom varchar(50) not null,
 	Description varchar(100) not null,
 	Lien varchar(50) not null

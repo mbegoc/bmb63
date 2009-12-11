@@ -66,11 +66,21 @@
 }
 .form p{
 	line-height:20px;
+	margin:10px;
 }
 .editor p, .editor input, .standardForm p, .standardForm input{
 	margin:10px;
 }
 
+.map
+{
+	margin-left: 200px;
+}
+.adresse
+{
+	margin-top: 50px;
+	margin-left: 50px;
+}
 .contactForm input
 {
 	margin-left: 350px;
@@ -95,7 +105,16 @@
 	width: 100px;
 }
 
-
+.photoForm
+{
+	width: 450px;
+	margin:0 auto;
+}
+.inputPhoto
+{
+	margin-right: 50px;
+	width : 250px;
+}
 
 #login{
 	width:300px;
@@ -192,6 +211,43 @@ h6{
 p{
 	text-align:justify;
 }
+
+.contactForm input
+{
+	margin-left: 350px;
+}
+
+.contactForm p
+{
+	
+	height: 25px;
+	float:left;
+}
+
+.map
+{
+	width:450px;
+	float:right;
+	margin-right:100px;
+}
+
+.contactForm textArea
+{
+
+	height: 15px;
+}
+.contactForm span
+{
+	float: left;
+	padding-right: 30px;
+	width: 100px;
+}
+
+.gallery
+{
+	margin:30px;
+}
+
 
 #footer p{
 	margin:12px;
