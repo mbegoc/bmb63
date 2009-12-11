@@ -32,7 +32,8 @@
 		public function setContenu($value)
 		{
 			$conn = new ContenuStandard();
-			$conn->update("contact", "contenu", $value,parent::getLangManager()->getLang());	
+			$conn->update("contact", "contenu", $value,parent::getLangManager()->getLang());
+			$this->messager->addMessage("Modification correctement enregistrée.", true);	
 		}
 		
 	}

@@ -30,6 +30,7 @@
 		}
 		public function setContenu($value){
 			$this->contenu->update("acceuil", "contenu", $value,parent::getLangManager()->getLang());
+			$this->messager->addMessage("Modification correctement enregistrée.", true);
 //			$conn->select("*" , "id", "667","fr");
 //			$test = $conn->next();
 		}

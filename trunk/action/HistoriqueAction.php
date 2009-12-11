@@ -24,6 +24,7 @@
 			parent::printContenu("Contenu" , "titre" , "historique");
 		}
 		public function setContenu($value){
-			$this->contenu->update("historique", "contenu", $value, parent::getLangManager()->getLang());	
+			$this->contenu->update("historique", "contenu", $value, parent::getLangManager()->getLang());
+			$this->messager->addMessage("Modification correctement enregistrée.", true);	
 		}
 	}

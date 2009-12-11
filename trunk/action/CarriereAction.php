@@ -22,6 +22,7 @@
 			}
 			if(isset($_GET["action"]) && $_GET["action"] === "del" && isset($_GET["id"]) && $_GET["id"] !== ""){
 				$this->contenu->delete("id", $_GET["id"], $this->langManager->getLang());
+				$this->messager->addMessage("Suppression effectuée.", true);
 			}	
 		}
 		
@@ -46,7 +47,7 @@
 					echo("<p>".$carriere[2]."</p>");
 					if($this->connected && $this->editable){
 						echo("<p class='rightAlign'><a href='?id=".$carriere[0]."&action=mod'><img src='images/Editor-icon.png' alt='Modifier' title='Modifier' /></a>");
-						echo("<a href='?id=".$carriere[0]."&action=del'><img src='images/Delete-icon.png' alt='Supprimer' title='Supprimer' /></a></p>");
+						echo("<a class='del' href='?id=".$carriere[0]."&action=del'><img src='images/Delete-icon.png' alt='Supprimer' title='Supprimer' /></a></p>");
 					}
 					$carriere = $this->contenu->next();
 				}
@@ -56,8 +57,10 @@
 		public function setContenu($value){
 			if(isset($_POST["id"]) && $_POST["id"] != ""){
 				$this->contenu->update($_POST["id"], $_POST["titre"], $_POST["content"], $_POST["date"]);
+				$this->messager->addMessage("Modification correctement enregistrée.", true);
 			}else{
 				$this->contenu->insert(Array(0=>$this->langManager->getLang(), 1=>$_POST["titre"], 2=>$_POST["content"], 3=>$_POST["date"]));
+				$this->messager->addMessage("La nouvelle carrière a bien été créée.", true);
 			}
 		}		
 		

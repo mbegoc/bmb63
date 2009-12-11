@@ -30,5 +30,6 @@
 		}
 		public function setContenu($value){
 			$this->contenu->update("compagnie", "contenu", $value,parent::getLangManager()->getLang());
+			$this->messager->addMessage("Modification correctement enregistrée.", true);
 		}
 	}
