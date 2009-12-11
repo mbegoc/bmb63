@@ -67,6 +67,9 @@
 .form p{
 	line-height:20px;
 }
+.editor p, .editor input, .standardForm p, .standardForm input{
+	margin:10px;
+}
 
 .contactForm input
 {
